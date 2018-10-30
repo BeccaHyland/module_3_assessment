@@ -11,5 +11,18 @@ describe "Games API" do
 
     expect(response).to be_successful
     expect(g["id"]).to eq(id)
+    expect(g).to eq({
+      "game_id":1,
+      "scores": [
+        {
+          "user_id":1,
+          "score":15
+        },
+        {
+          "user_id":2,
+          "score":16
+        }
+      ]
+    })
   end
 end
