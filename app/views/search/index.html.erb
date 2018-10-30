@@ -1,1 +1,8 @@
 <h1>Examples for using '<%= @search_result.word %>'</h1>
+
+<% @search_result.sentences.each do |sentence| %>
+  <ul class="sentence">
+    <li class="full_sentence"><%= sentence.full_sentence %></li>
+    <li class="region"><%= sentence.region %></li>
+  </ul>
+<% end %>
