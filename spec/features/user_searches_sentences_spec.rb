@@ -14,9 +14,9 @@ describe 'visitor searches for sentences' do
     # And I should see a list of sentences with examples of how to use the word
     expect(page).to have_css(".sentence")
     # And I should see only sentences where the region for usage is "Brittish" or "Canadian"
-    expect(page).to have_css(".British" || ".Canadian")
+    expect(page).to have_content("British" || "Canadian")
     # And I should not see sentences for any other regions (or blank regions)
-    expect(page).to_not have_css(".American")
+    expect(page).to_not have_content("North American")
 
   end
 end

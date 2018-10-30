@@ -6,7 +6,7 @@ class SentenceSearchResult
   end
 
   def sentences
-    @sentences ||= service.sentence_search.map do |sentence_data|
+    @sentences ||= service.sentence_search[:results].first[:lexicalEntries].first[:sentences].map do |sentence_data|
       Sentence.new(sentence_data)
     end
   end
