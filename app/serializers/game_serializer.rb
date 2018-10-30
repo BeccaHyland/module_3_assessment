@@ -1,4 +1,8 @@
 class GameSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :game_id
+
+  def game_id
+    object.id
+  end
 
 end
