@@ -7,7 +7,9 @@ class SentenceSearchResult
 
   def sentences
     @sentences ||= service.sentence_search[:results].first[:lexicalEntries].first[:sentences].map do |sentence_data|
-      Sentence.new(sentence_data)
+      if sentence_data[:regions].first != "North American"
+        Sentence.new(sentence_data)
+      end
     end
   end
 
