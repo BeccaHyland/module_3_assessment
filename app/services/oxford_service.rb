@@ -4,14 +4,13 @@ class OxfordService
   end
 
   def sentence_search
-    get_json("/api/v1/")
+    get_json("/api/v1/entries/en/#{@filter[:word]}/sentences")
   end
 
   private
 
   def conn
     Faraday.new(url: "https://od-api.oxforddictionaries.com") do |faraday|
-      faraday.headers["Accept"] = ENV["application/json"]
       faraday.headers["app_id"] = ENV["OXFORD_ID"]
       faraday.headers["app_key"] = ENV["OXFORD_KEY"]
       faraday.adapter Faraday.default_adapter
